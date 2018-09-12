@@ -1,0 +1,100 @@
+<!-- Navbar provisional -->
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <!-- Bootstrap defaults -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Llanero Sales</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'styleDetail.css' %}">
+        <link rel="icon" href="{% static 'logotransp.png' %}">
+        
+    </head>
+
+<body>
+        <nav class="navbar is-dark">
+                <div class="container">
+                    <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="{% static 'small.png' %}" alt="Logo LlaneroSales" width="170">
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    </div>
+                    <div id="navbarMenuHeroB" class="navbar-menu">
+                        <div class="navbar-end">
+                            <span class="navbar-item is-active">
+                                <a href="{% url 'store:home'%}" class="button is-light is-rounded">
+                                    <span class="icon">
+                                        <i class="fas fa-home"></i>
+                                    </span>
+                                    <span>Home</span> 
+                                </a>
+                                
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-light is-rounded">
+                                    <span class="icon">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </span>
+                                    <span>Tienda</span> 
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-light is-rounded">
+                                    <span class="icon">
+                                        <i class="far fa-credit-card"></i>
+                                    </span>
+                                    <span>MercadoLibre</span> 
+                                </a>
+                            </span>
+                            <span class="navbar-item">
+                                <a class="button is-info is-inverted is-rounded">
+                                    <span class="icon">
+                                        <i class="fas fa-motorcycle"></i>
+                                    </span>
+                                    <span>Motos</span>
+                                </a>
+                            </span>
+                    </div>
+                    </div>
+                </div>
+            </nav>
+<!-- CODIGO IMPORTANTE -->        
+<div class="container box" style="margin-top:2rem">
+    <div class="columns">
+        <div class="column is-1 is-hidden-mobile">
+            {% for foto in item.foto_set.all %}
+                <img src="{{ foto.imagen.url }}" alt="Imagen" class="image">
+            {% endfor %}
+        </div>
+        <div class="column">
+            <img src="{{ item.getImg }}" alt="Imagen Principal" class="image">
+        </div>
+        <div class="column">
+            <h1>
+                <b>{{item.titulo}}</b> 
+            </h1>
+            <h2>
+                ${{item.precio}}
+            </h2>
+            <button class="button">Comprar</button>
+            <hr>
+            <p>{{item.descripcion}}</p>
+            <hr>
+            <button class="button">Ver en MercadoLibre</button>
+            <button class="button">Ver video</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

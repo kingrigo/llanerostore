@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>LlaneroSales</title>
+</head>
+<body>
+    {% block navbar %}
+
+    {% endblock %}
+    {% block content %}
+    <section class="hero is-fullheight">
+        <!-- Hero head: will stick at the top -->
+         <div class="hero-head is-fullwidth">
+          <header class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                
+                <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div> 
+              <div id="navbarMenuHeroC" class="navbar-menu">
+                <div class="navbar-end">
+                    <span class="navbar-item">
+                        <a class="button is-light is-rounded" href="{% url 'store:tienda' %}">
+                            <span class="icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </span>
+                            <span>Tienda</span> 
+                        </a>
+                    </span>
+            
+                    <span class="navbar-item">
+                        <a class="button is-light is-rounded">
+                            <span class="icon">
+                                <i class="far fa-credit-card"></i>
+                            </span>
+                            <span>MercadoLibre</span> 
+                        </a>
+                    </span>
+                    <span class="navbar-item">
+                        <a class="button is-info is-inverted is-rounded">
+                            <span class="icon">
+                                <i class="fas fa-motorcycle"></i>
+                            </span>
+                            <span>Motos</span>
+                        </a>
+                    </span>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+      
+        
+
+        <div class="hero-body">
+          <div class="has-text-centered">
+              <div class="columns">
+                  <div class="column">
+                    <img src="{% static 'logotransp.png' %}" alt="">
+                      
+                  </div>
+                  <div class="column content has-text-centered has-text-black">
+                        <br>
+                        <p class="is-size-3">Cuando se trata de motocicletas, 
+                                nosotros somos tan fanaticos como tu, por eso nos dimos a la tarea de crear una tienda
+                                que cumpla todas tus necesidades como Biker</p>
+                          <button class="button button2 is-large is-rounded">
+                                <span class="icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                </span>
+                              <span>LlaneroSales</span> 
+                            </button>
+                          <button class="button button2 is-large is-rounded">
+                                <span class="icon">
+                                        <i class="fas fa-motorcycle"></i>
+                                </span>
+                              <span>UrbanCustoms</span>
+                            
+                            </button>
+                          <!-- <button class="button">
+                                  <span class="icon">
+                                          <i class="fas fa-users"></i>
+                                      </span>
+                                      <span>Nosotros</span></button>
+                                  
+                              </button> -->
+                    </div>
+                  <div class="column">
+                        <img src="{% static 'logoucNew.png' %}" alt="">
+                  </div>
+              </div>
+              
+
+              
+              
+              
+            
+          </div>
+        </div>
+      
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+                <div class="buttons has-addons is-centered">
+                    <button class="button">Nosotros</button>
+                    <button class="button">Contacto</button>
+                    <button class="button">Formas de Pago y Envio</button>
+                    <button class="button">FAQ</button>
+
+                </div>
+            </div>
+          </nav>
+        </div>
+      </section>
+
+      {% endblock %}
+</body>
+</html>

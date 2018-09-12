@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+{% if ultimasPreguntas %}
+    <ul class="menu-list">
+        {% for question in ultimasPreguntas %}
+            <li><a href="{% url 'mainSite:detail' question.id %}"> {{question.questionText}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ninguna pregunta disponible</p>
+{% endif %}

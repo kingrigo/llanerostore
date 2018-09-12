@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <!-- Bootstrap defaults -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Llanero Sales</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'styleTienda.css' %}">
+        <link rel="icon" href="{% static 'logotransp.png' %}">
+        
+    </head>
+
+<body>
+    <body>
+        <nav class="navbar is-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="{% static 'small.png' %}" alt="Logo LlaneroSales" width="170">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenuHeroB">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                </div>
+                <div id="navbarMenuHeroB" class="navbar-menu">
+                    <div class="navbar-end">
+                        <span class="navbar-item is-active">
+                            <a class="button is-light is-rounded">
+                                <span class="icon">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span>Home</span> 
+                            </a>
+                            
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-light is-rounded">
+                                <span class="icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </span>
+                                <span>Tienda</span> 
+                            </a>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-light is-rounded">
+                                <span class="icon">
+                                    <i class="far fa-credit-card"></i>
+                                </span>
+                                <span>MercadoLibre</span> 
+                            </a>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-info is-inverted is-rounded">
+                                <span class="icon">
+                                    <i class="fas fa-motorcycle"></i>
+                                </span>
+                                <span>Motos</span>
+                            </a>
+                        </span>
+                </div>
+                </div>
+            </div>
+        </nav>
+        <!--SIDE MENU-->
+        <div class="columns is-fullheight">
+            <div class="column is-2 is-sidebar-menu is-hidden-mobile">
+                <aside class="menu">
+                    <p class="menu-label">CATEGORÍAS DE LOS PRODUCTOS</p>
+                    <ul class="menu-list">
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Indumentaria</a></li>
+                        <li><a href="#">Sin Categoria</a></li>
+                    </ul>
+                    <p class="menu-label">FILTRAR POR CONDICIÓN</p>
+                    <ul class="menu-list">
+                        <li><a href="#">Nuevo</a></li>
+                        <li><a href="#">Usados</a></li>
+                    </ul>
+                    <p class="menu-label">FILTRAR POR COMPATIBILIDAD</p>
+                    <ul class="menu-list">
+                        <li><a href="#">CVO</a></li>
+                        <li><a href="#">Dyna</a></li>
+                        <li><a href="#">Milwaukee Eight</a></li>
+                        <li><a href="#">MultiFit</a></li>
+                        <li><a href="#">Road Glide</a></li>
+                        <li><a href="#">Softail</a></li>
+                        <li><a href="#">Sportster</a></li>
+                        <li><a href="#">Street</a></li>
+                        <li><a href="#">Touring</a></li>
+                        <li><a href="#">Triumph</a></li>
+                        <li><a href="#">Twin</a></li>
+                        <li><a href="#">Twin Cam</a></li>
+                        <li><a href="#">VROD</a></li>
+                    </ul>
+                    <p class="menu-label">FILTRAR POR SECCIÓN DE LA MOTO</p>
+                    <ul class="menu-list">
+                        <li><a href="#">Delantera</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Trasera</a></li>
+                    </ul>
+                </aside>
+                
+            </div>
+            <div class="column is-9">
+                <section class="info-tiles">
+                    <div class="tile is-ancestor">
+                        {% for item in items|slice:":3" %}                
+                            <article class="tile is-child">
+                                <div class="wrapper">
+                                    <div class="container">
+                                        <div class="top" style="background:url({{item.getImg}}) no-repeat center center;background-size:100% 100%">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="left">
+                                                <div class="details">
+                                                    <h1>{{item.titulo|truncatewords:4}}</h1>
+                                                    <p>${{item.precio}}</p>
+                                                </div>
+                                                <a href="{% url 'store:detalle' item.pk %}"><div class="buy"><i class="fas fa-cart-plus"></i></div></a>
+                                                <div class="right">
+                                                </div>       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                </section>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor">
+                        {% for item in items|slice:"3:" %}                
+                            <article class="tile is-child">
+                                <div class="wrapper">
+                                    <div class="container">
+                                        <div class="top" style="background:url({{ MEDIA_URL }}/{{item.getImg}}) no-repeat center center;background-size:100% 100%">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="left">
+                                                <div class="details">
+                                                    <h1>{{item.titulo|truncatewords:4}}</h1>
+                                                    <p>${{item.precio}}</p>
+                                                </div>
+                                                <div class="buy"><i class="fas fa-cart-plus"></i></div>
+                                                <div class="right">
+                                                </div>       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                </section>
+               
+            </div>
+            {% if is_paginated %}
+            <ul>
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            
+        </div>
+    <!--SCRIPTS (BAJAR JQUERY) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    <script src="js/mainVue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+    
+</html>
